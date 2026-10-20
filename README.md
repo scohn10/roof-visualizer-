@@ -2,7 +2,7 @@
 
 Photograph a house, enter a few dimensions, and see what a steeper roof, a hip conversion or dormers would look like, before anyone frames anything. It also checks the new ridge against a height limit and estimates how much of the attic becomes usable.
 
-Everything runs in the browser. Photos never leave the device; only the numbers are saved (in `localStorage`).
+Everything runs in the browser. Photos never leave the device; only the numbers are saved (in `localStorage`). Address searches on the Map tab are sent to OpenStreetMap's geocoder, and map tiles load from Esri.
 
 ## How it works
 
