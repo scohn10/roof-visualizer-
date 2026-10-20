@@ -6,9 +6,10 @@ Everything runs in the browser. Photos never leave the device; only the numbers 
 
 ## How it works
 
-1. **Photo tab:** take or upload a straight-on photo of the long side or the gable end, then tap four points: left eave, right eave, existing ridge, and the ground below the left eave. The eave-to-eave distance (the house's length or span) scales the photo, so eave height and existing rise are measured from it automatically. The proposed roof, dormers, 7 ft headroom line and height limit are drawn over the photo. "Adjust points" lets you drag taps with a magnifier.
-2. **Drawing tab:** a scaled elevation of either side with dimensions.
-3. **3D tab:** a rotatable massing model with the old roof as a dashed wireframe and the height limit as a red plane.
+1. **Map tab:** search any address (or use your location) to get a satellite view, tap three corners of the roof, and drag the corners to fit. It measures the roof outline, subtracts the eave overhang you set, and fills in the house's length and span. Imagery is Esri World Imagery; address search is OpenStreetMap Nominatim (one search per submit, no autocomplete, per its usage policy).
+2. **Photo tab:** take or upload a straight-on photo of the long side or the gable end, then tap four points: left eave, right eave, existing ridge, and the ground below the left eave. The eave-to-eave distance (the house's length or span) scales the photo, so eave height and existing rise are measured from it automatically. The proposed roof, dormers, 7 ft headroom line and height limit are drawn over the photo. "Adjust points" lets you drag taps with a magnifier.
+3. **Drawing tab:** a scaled elevation of either side with dimensions.
+4. **3D tab:** a rotatable massing model with the old roof as a dashed wireframe and the height limit as a red plane.
 
 ### Outputs
 

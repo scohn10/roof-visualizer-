@@ -16,12 +16,17 @@ import ElevationView from "./ElevationView";
 import Controls from "./Controls";
 import MetricsPanel from "./MetricsPanel";
 
+const MapMeasure = dynamic(() => import("./MapMeasure"), {
+  ssr: false,
+  loading: () => <div className="stage-empty">Loading map…</div>,
+});
+
 const ThreeView = dynamic(() => import("./ThreeView"), {
   ssr: false,
   loading: () => <div className="stage-empty">Loading 3D…</div>,
 });
 
-type Tab = "photo" | "drawing" | "3d";
+type Tab = "map" | "photo" | "drawing" | "3d";
 const STORAGE_KEY = "roofviz:v1";
 
 export default function RoofApp() {
@@ -30,6 +35,11 @@ export default function RoofApp() {
   const [tab, setTab] = useState<Tab>("drawing");
   const [view, setView] = useState<View>("front");
   const [loaded, setLoaded] = useState(false);
+  const [mapOpened, setMapOpened] = useState(false);
+
+  useEffect(() => {
+    if (tab === "map") setMapOpened(true);
+  }, [tab]);
 
   // Restore saved numbers (photos are never stored).
   useEffect(() => {
@@ -87,6 +97,7 @@ export default function RoofApp() {
         <div className="tabs" role="tablist">
           {(
             [
+              ["map", "Map"],
               ["photo", "Photo"],
               ["drawing", "Drawing"],
               ["3d", "3D"],
@@ -102,7 +113,7 @@ export default function RoofApp() {
               {label}
             </button>
           ))}
-          {tab !== "3d" && (
+          {(tab === "photo" || tab === "drawing") && (
             <div className="view-toggle" aria-label="Which side of the house">
               <button className={view === "front" ? "active" : ""} onClick={() => setView("front")}>
                 Long side
@@ -115,7 +126,15 @@ export default function RoofApp() {
         </div>
 
         <div className="stage">
-          {/* Kept mounted so photos survive switching tabs. */}
+          {/* Map and photo stay mounted so their work survives switching tabs. */}
+          {mapOpened && (
+            <div hidden={tab !== "map"}>
+              <MapMeasure
+                active={tab === "map"}
+                onApply={({ length, span }) => setHouse((h) => ({ ...h, length, span }))}
+              />
+            </div>
+          )}
           <div hidden={tab !== "photo"}>
             <PhotoView
               house={house}

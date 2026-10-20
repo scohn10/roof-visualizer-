@@ -669,3 +669,112 @@ input[type="range"] {
   margin: 0;
   max-width: 680px;
 }
+
+/* Map measuring */
+.mapm {
+  display: grid;
+}
+.map-search {
+  display: flex;
+  gap: 8px;
+  padding: 10px;
+  background: var(--card);
+}
+.map-search input {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  background: var(--paper);
+  color: var(--ink);
+  padding: 10px 12px;
+  font-size: 16px; /* prevents iOS zoom */
+}
+.map-search input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+.map-search .btn.primary {
+  padding: 8px 16px;
+}
+.map-results {
+  list-style: none;
+  margin: 0;
+  padding: 0 10px 10px;
+  background: var(--card);
+  display: grid;
+  gap: 4px;
+}
+.map-results button {
+  width: 100%;
+  text-align: left;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  border-radius: 10px;
+  padding: 9px 12px;
+  font-size: 14px;
+  line-height: 1.35;
+}
+.map-msg {
+  margin: 0;
+  padding: 0 14px 10px;
+  font-size: 14px;
+  color: var(--bad);
+  background: var(--card);
+}
+.map-canvas {
+  height: min(62vh, 520px);
+  width: 100%;
+  background: #1b2026;
+}
+.map-corner {
+  background: #1f7aec;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  display: grid !important;
+  place-items: center;
+  color: #fff;
+  font: 700 12px/1 system-ui, sans-serif;
+}
+.map-edge-label span {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  background: rgba(0, 0, 0, 0.72);
+  color: #ffb08a;
+  font: 700 13px/1 var(--mono);
+  padding: 4px 6px;
+  border-radius: 6px;
+}
+.map-pin {
+  background: #ff4d4d;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+.map-result {
+  display: grid;
+  gap: 12px;
+  padding: 12px 14px 4px;
+  background: var(--card);
+}
+.map-dims {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.map-dims > div {
+  display: grid;
+  gap: 2px;
+}
+.map-dims strong {
+  font-family: var(--mono);
+  font-size: 18px;
+}
+.map-hint {
+  margin: 0;
+}
+.mapm .photo-actions {
+  background: var(--card);
+}
